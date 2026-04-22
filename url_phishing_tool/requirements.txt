@@ -1,5 +1,8 @@
-numpy
+streamlit>=1.32
 pandas
 scikit-learn
 joblib
-streamlit
+numpy
+ucimlrepo
+kaggle
+altair>=5
