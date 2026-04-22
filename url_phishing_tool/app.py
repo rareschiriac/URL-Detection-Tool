@@ -17,7 +17,6 @@ def load_css(file_name):
 
 load_css(os.path.join(os.path.dirname(__file__), "style.css"))
 
-# Download model files from Google Drive if not present
 os.makedirs("models", exist_ok=True)
 
 if not os.path.exists("models/url_model.joblib"):
@@ -35,7 +34,6 @@ if not os.path.exists("models/feature_cols.joblib"):
     )
 
 model = joblib.load("models/url_model.joblib")
-st.write("Model loaded successfully")
 feature_cols = joblib.load("models/feature_cols.joblib")
 
 TRUSTED_DOMAINS = {
@@ -93,7 +91,7 @@ if not st.session_state.started:
     with col2:
         if st.button("Get Started"):
             st.session_state.started = True
-            st.rerun()
+            st.experimental_rerun()
 
 else:
     st.markdown('<div class="main-content">', unsafe_allow_html=True)
