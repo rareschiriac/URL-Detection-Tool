@@ -35,6 +35,7 @@ if not os.path.exists("models/feature_cols.joblib"):
     )
 
 model = joblib.load("models/url_model.joblib")
+st.write("Model loaded successfully")
 feature_cols = joblib.load("models/feature_cols.joblib")
 
 TRUSTED_DOMAINS = {
