@@ -15,8 +15,9 @@ def load_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-load_css(os.path.join(os.path.dirname(__file__), "style.css"))
+load_css("style.css")
 
+# Download model files from Google Drive if not present
 os.makedirs("models", exist_ok=True)
 
 if not os.path.exists("models/url_model.joblib"):
@@ -91,7 +92,7 @@ if not st.session_state.started:
     with col2:
         if st.button("Get Started"):
             st.session_state.started = True
-            st.experimental_rerun()
+            st.rerun()
 
 else:
     st.markdown('<div class="main-content">', unsafe_allow_html=True)
