@@ -1,3 +1,5 @@
+import os
+import gdown
 import streamlit as st
 import joblib
 import pandas as pd
@@ -14,6 +16,23 @@ def load_css(file_name):
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 load_css("style.css")
+
+# Download model files from Google Drive if not present
+os.makedirs("models", exist_ok=True)
+
+if not os.path.exists("models/url_model.joblib"):
+    gdown.download(
+        "https://drive.google.com/uc?id=1YlJPvvTYiojuSMgPuNuE99D5UgJA6ZYB",
+        "models/url_model.joblib",
+        quiet=False
+    )
+
+if not os.path.exists("models/feature_cols.joblib"):
+    gdown.download(
+        "https://drive.google.com/uc?id=1dKfaMk-j72z2Crfr4arhpNNu2I25qLfO",
+        "models/feature_cols.joblib",
+        quiet=False
+    )
 
 model = joblib.load("models/url_model.joblib")
 feature_cols = joblib.load("models/feature_cols.joblib")
