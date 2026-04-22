@@ -3,6 +3,5 @@ pandas
 scikit-learn
 joblib
 numpy
-ucimlrepo
-kaggle
+gdown
 altair>=5
