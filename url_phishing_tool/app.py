@@ -15,7 +15,7 @@ def load_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-load_css("style.css")
+load_css(os.path.join(os.path.dirname(__file__), "style.css"))
 
 # Download model files from Google Drive if not present
 os.makedirs("models", exist_ok=True)
